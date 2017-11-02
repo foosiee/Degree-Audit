@@ -1,4 +1,5 @@
 package projectindex;
+
 // Import packages;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -34,13 +35,13 @@ public class ProjectIndex {
         
         
         // Keys and values of map(course and credit hours);
-        classMap.put("Calc", 4);
+        classMap.put("Math 1610 - Calculus 1", 4);
         classMap.put("Trig", 4);
         classMap.put("CSET", 3);
         classMap.put("Stats", 3);
         classMap.put("Override", 129);
         
-        
+         
         // Creates an array of all keys;
         String[] classSet = classMap.keySet().toArray(new String[classMap.size()]);
         
@@ -69,12 +70,17 @@ public class ProjectIndex {
                 System.out.println("Congratulations! You can graduate!");
                 break;
             }
-            
         }
         
+        // if user hasn't taken 128 hours execute code;
         if (creditHours < 128){
-            // Prints creditSum;
-            System.out.println(creditSum);
+            
+            // Prints how many credit hours user has taken;
+            System.out.println("You have taken " + creditSum + " credit hours");
+            
+            // Calculates remaining credit hours and prints;
+            int creditRem = 128 - creditSum;
+            System.out.println("You have " + creditRem + " credit hours remaining");
         
             // Creates new array from classMap with course they still need to take;
             String[] newClassSet = classMap.keySet().toArray(new String[classMap.size()]);
