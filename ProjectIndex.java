@@ -112,7 +112,10 @@ public class ProjectIndex {
             // Calculates remaining credit hours and prints;
             int creditRem = 128 - creditSum;
             System.out.println("You have " + creditRem + " credit hours remaining");
-        
+            
+            // White Space;
+            System.out.println(" ");
+            
             // Creates new array from classMap with course they still need to take;
             String[] newClassSet = classMap.keySet().toArray(new String[classMap.size()]);
             Arrays.sort(newClassSet);
@@ -126,7 +129,7 @@ public class ProjectIndex {
                 System.out.print(newClassSet[i] + ", ");
                 counter++;
                 
-                if (counter % 2 == 0){
+                if (counter % 5 == 0){
                     System.out.println(" ");
                 }
             }
