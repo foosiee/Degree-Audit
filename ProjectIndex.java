@@ -1,6 +1,7 @@
 package projectindex;
 
 // Import packages;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -72,8 +73,14 @@ public class ProjectIndex {
             }
         }
         
+                // White space;
+        System.out.println(" ");
+        
         // if user hasn't taken 128 hours execute code;
         if (creditHours < 128){
+            
+            // Remove override key from map;
+            classMap.remove("Override");
             
             // Prints how many credit hours user has taken;
             System.out.println("You have taken " + creditSum + " credit hours");
@@ -84,11 +91,22 @@ public class ProjectIndex {
         
             // Creates new array from classMap with course they still need to take;
             String[] newClassSet = classMap.keySet().toArray(new String[classMap.size()]);
+            Arrays.sort(newClassSet);
         
             // Prints out classes to take;
+            System.out.println("You have " + newClassSet.length + " classes left");
+            System.out.print("Take these classes: ");
+            
+            int counter = 0;
             for (int i = 0; i < newClassSet.length; i++){
-                System.out.println(newClassSet[i]);
+                System.out.print(newClassSet[i] + ", ");
+                counter++;
+                
+                if (counter % 2 == 0){
+                    System.out.println(" ");
+                }
             }
+            System.out.println(" ");
         }
     } 
 }
