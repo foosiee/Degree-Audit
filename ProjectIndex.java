@@ -65,6 +65,7 @@ public class ProjectIndex {
         classMap.put("MET-2100 Engr. Mechanics: Statics",3);
         classMap.put("PHYS-2010 Tech Physics I",5);
         classMap.put("PHYS-2020 Tech Physics II",5);
+        classMap.put("Override", 129);
         
          
         // Creates an array of all keys;
