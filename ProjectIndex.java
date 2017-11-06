@@ -118,11 +118,19 @@ public class ProjectIndex {
             
             int counter = 0;
             for (int i = 0; i < newClassSet.length; i++){
-                System.out.print(newClassSet[i] + ", ");
-                counter++;
                 
-                if (counter % 4 == 0){
-                    System.out.println(" ");
+                if (counter == newClassSet.length - 1){
+                    System.out.print("and " + newClassSet[i]);
+                    counter++;
+                }
+                
+                else {
+                    System.out.print(newClassSet[i] + ", ");
+                    counter++;
+                
+                    if (counter % 4 == 0){
+                        System.out.println(" ");
+                    }
                 }
             }
             System.out.println(" ");
