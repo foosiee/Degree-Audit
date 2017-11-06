@@ -65,6 +65,8 @@ public class ProjectIndex {
         
         // Loop to enter names of classes up to previous input: classNum;
         for (int i = 0; i < classNum; i++){
+            
+            try {
                 System.out.print("Enter the name of class " + (i+1) + " : ");
 		userSet[i] = stringInput.nextLine();
                 
@@ -80,6 +82,11 @@ public class ProjectIndex {
                 /*Remove key from hashMap so we can print out later what class
                 they have yet to take*/
                 classMap.remove(userSet[i]);
+                
+            } catch (NullPointerException e){
+                System.out.println("Not a valid class. Please try again.");
+                i -= 1;
+            }        
             
             
                 // If creditHours is >= 128 break loop as they can graduate;
@@ -118,9 +125,8 @@ public class ProjectIndex {
             
             int counter = 0;
             for (int i = 0; i < newClassSet.length; i++){
-                
                 if (counter == newClassSet.length - 1){
-                    System.out.print("and " + newClassSet[i]);
+                    System.out.print("and " + newClassSet[i] + "\n");
                     counter++;
                 }
                 
@@ -133,7 +139,6 @@ public class ProjectIndex {
                     }
                 }
             }
-            System.out.println(" ");
-        }
-    } 
+        } 
+    }
 }
