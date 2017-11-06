@@ -66,6 +66,7 @@ public class ProjectIndex {
         // Loop to enter names of classes up to previous input: classNum;
         for (int i = 0; i < classNum; i++){
             
+            // Exception handling, try statement to execute loop;
             try {
                 System.out.print("Enter the name of class " + (i+1) + " : ");
 		userSet[i] = stringInput.nextLine();
@@ -83,6 +84,7 @@ public class ProjectIndex {
                 they have yet to take*/
                 classMap.remove(userSet[i]);
                 
+            // Exception if user doesn't enter a class in hashmap;    
             } catch (NullPointerException e){
                 System.out.println("Not a valid class. Please try again.");
                 i -= 1;
@@ -96,11 +98,11 @@ public class ProjectIndex {
             }
         }
           
-        // White space;
-        System.out.println(" ");
-        
         // if user hasn't taken 128 hours execute code;
         if (creditHours < 128){
+            
+            // White space;
+            System.out.println(" ");
             
             // Remove override key from map;
             classMap.remove("Override");
@@ -125,15 +127,18 @@ public class ProjectIndex {
             
             int counter = 0;
             for (int i = 0; i < newClassSet.length; i++){
+                // If counter reachs last index in array put and between last two items;
                 if (counter == newClassSet.length - 1){
                     System.out.print("and " + newClassSet[i] + "\n");
                     counter++;
                 }
                 
+                // Otherwise just a comma;
                 else {
                     System.out.print(newClassSet[i] + ", ");
                     counter++;
-                
+                    
+                    // Put 4 classes on each line;
                     if (counter % 4 == 0){
                         System.out.println(" ");
                     }
