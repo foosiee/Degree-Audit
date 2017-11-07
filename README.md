@@ -6,3 +6,7 @@ Working verison of project just needs full hashmap of classes
 Nov 1, 2017
 Master version now has CORE classes in hashmap. 
 Still needs all ELECTIVES considering making another hashmap.
+
+Nov 6, 2017
+Now has exception handling and some more formatting
+Electives??? Doesn't need much us will prolly find some more text formatting thats about it.
