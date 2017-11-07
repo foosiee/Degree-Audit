@@ -10,3 +10,4 @@ Still needs all ELECTIVES considering making another hashmap.
 Nov 6, 2017
 Now has exception handling and some more formatting
 Electives??? Doesn't need much us will prolly find some more text formatting thats about it.
+As for electives will prolly add them as "Multicultural elective I or Profession Development elective I"
