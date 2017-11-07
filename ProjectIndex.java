@@ -12,7 +12,7 @@ public class ProjectIndex {
         HashMap<String, Integer> classMap = new HashMap<String, Integer>();  
         
         
-        // Keys and values of map ONLY CORE CLASSES CURRENTLY(course and credit hours);
+        // Keys and values of map (course and credit hours);
         classMap.put("CHEM-1230 General Chemistry I",4);
         classMap.put("CSET-2200 PC & Industrial Networks",4);
         classMap.put("EET-1010 Resistive Circuits",4);
@@ -42,6 +42,12 @@ public class ProjectIndex {
         classMap.put("MET-2100 Engr. Mechanics: Statics",3);
         classMap.put("PHYS-2010 Tech Physics I",5);
         classMap.put("PHYS-2020 Tech Physics II",5);
+        classMap.put("SocSc/Hum/Multicultural Elective I",3);
+        classMap.put("SocSc/Hum/Multicultural Elective II",3);
+        classMap.put("SocSc/Hum/Multicultural Elective III",3);
+        classMap.put("Communications Elective",3);
+        classMap.put("Professional Development Elective",3);
+        // Override to test graduation checker;
         classMap.put("Override",129);
         
         /* Create scanners, typically thought you didn't need two but with only 
@@ -66,6 +72,7 @@ public class ProjectIndex {
         // Loop to enter names of classes up to previous input: classNum;
         for (int i = 0; i < classNum; i++){
             
+            // Exception handling, try statement to execute loop;
             try {
                 System.out.print("Enter the name of class " + (i+1) + " : ");
 		userSet[i] = stringInput.nextLine();
@@ -83,6 +90,7 @@ public class ProjectIndex {
                 they have yet to take*/
                 classMap.remove(userSet[i]);
                 
+            // Exception if user doesn't enter a class in hashmap;    
             } catch (NullPointerException e){
                 System.out.println("Not a valid class. Please try again.");
                 i -= 1;
@@ -96,11 +104,11 @@ public class ProjectIndex {
             }
         }
           
-        // White space;
-        System.out.println(" ");
-        
         // if user hasn't taken 128 hours execute code;
         if (creditHours < 128){
+            
+            // White space;
+            System.out.println(" ");
             
             // Remove override key from map;
             classMap.remove("Override");
@@ -125,15 +133,18 @@ public class ProjectIndex {
             
             int counter = 0;
             for (int i = 0; i < newClassSet.length; i++){
+                // If counter reachs last index in array put and between last two items;
                 if (counter == newClassSet.length - 1){
                     System.out.print("and " + newClassSet[i] + "\n");
                     counter++;
                 }
                 
+                // Otherwise just a comma;
                 else {
                     System.out.print(newClassSet[i] + ", ");
                     counter++;
-                
+                    
+                    // Put 4 classes on each line;
                     if (counter % 4 == 0){
                         System.out.println(" ");
                     }
