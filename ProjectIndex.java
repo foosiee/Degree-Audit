@@ -9,7 +9,7 @@ public class ProjectIndex {
     public static void main(String[] args) {
         
         // Creates empty hashmap to store all classes and credit hours in major;
-        HashMap<String, Integer> classMap = new HashMap<String, Integer>();  
+        HashMap<String, Integer> classMap = new HashMap<>();  
         
         
         // Keys and values of map (course and credit hours);
@@ -125,25 +125,24 @@ public class ProjectIndex {
             
             // Creates new array from classMap with course they still need to take;
             String[] newClassSet = classMap.keySet().toArray(new String[classMap.size()]);
+            // Sorts array alphabetically;
             Arrays.sort(newClassSet);
         
             // Prints out classes to take;
             System.out.println("You have " + newClassSet.length + " classes left");
             System.out.print("Take these classes: ");
             
+            // Formats output;
             int counter = 0;
-            for (int i = 0; i < newClassSet.length; i++){
+            for (String className : newClassSet) {
                 // If counter reachs last index in array put and between last two items;
-                if (counter == newClassSet.length - 1){
-                    System.out.print("and " + newClassSet[i] + "\n");
+                if (counter == newClassSet.length - 1) {
+                    System.out.print("and " + className + "\n");
                     counter++;
-                }
-                
                 // Otherwise just a comma;
-                else {
-                    System.out.print(newClassSet[i] + ", ");
+                } else {
+                    System.out.print(className + ", ");
                     counter++;
-                    
                     // Put 4 classes on each line;
                     if (counter % 4 == 0){
                         System.out.println(" ");
