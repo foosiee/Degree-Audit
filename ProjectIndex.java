@@ -4,6 +4,7 @@ package projectindex;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 public class ProjectIndex {
     public static void main(String[] args) {
@@ -56,11 +57,21 @@ public class ProjectIndex {
         Scanner numInput = new Scanner(System.in);
         Scanner stringInput = new Scanner(System.in);
         
-        
-        // Propmt user for number of classes they have taken;
-        System.out.print("Enter number of classes you have taken: ");
-        int classNum = numInput.nextInt();
-        
+        // Intialize classNum;
+        int classNum = 0;
+        while(true){
+            try {
+                // Propmt user for number of classes they have taken;
+                System.out.print("Enter number of classes you have taken: ");
+                classNum = numInput.nextInt();
+                break;
+            // Catches inputs that are not numbers;    
+            } catch (InputMismatchException e){
+                System.out.println("Please enter a number.");
+                // Clears buffers memory;
+                numInput.next();
+            }
+        }
         
         // Creates empty array to hold users class names;
         String[] userSet = new String[classNum];
@@ -125,21 +136,18 @@ public class ProjectIndex {
             
             // Creates new array from classMap with course they still need to take;
             String[] newClassSet = classMap.keySet().toArray(new String[classMap.size()]);
-            // Sorts array alphabetically;
             Arrays.sort(newClassSet);
         
             // Prints out classes to take;
             System.out.println("You have " + newClassSet.length + " classes left");
             System.out.print("Take these classes: ");
             
-            // Formats output;
             int counter = 0;
             for (String className : newClassSet) {
                 // If counter reachs last index in array put and between last two items;
                 if (counter == newClassSet.length - 1) {
                     System.out.print("and " + className + "\n");
                     counter++;
-                // Otherwise just a comma;
                 } else {
                     System.out.print(className + ", ");
                     counter++;
